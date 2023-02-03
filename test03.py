@@ -160,7 +160,7 @@ for i, items in enumerate(calItem):
         bt.grid(column=k, row=(i + 1))
         # [해석] 행은 k, 열은 1부터 시작하는 i로 하는 배열을 생성
 
-
+#
 
 win.mainloop()
 # [해석] 윈도우 내부에서 수행되는 마우스 클릭 등이 발생되게 유지함
