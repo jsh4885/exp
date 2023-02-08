@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QApplication, QMainWindow
-from test04_3 import Ui_MainWindow
+from test04 import Ui_MainWindow
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
