@@ -96,7 +96,8 @@ class Ui_MainWindow(object):
                                             'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
 
         if fname[0]:
-            print("파일 선택됨 파일 경로는 아래와 같음")
+            print("파일 경로")
             print(fname[0])
         else:
-            print("파일 안 골랐음")
+            print("파일 미선택")
+    # function
