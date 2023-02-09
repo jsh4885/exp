@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-
-################################################################################
-## Form generated from reading UI file 'test04YBLnVG.ui'
-##
-## Created by: Qt User Interface Compiler version 6.4.2
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -17,7 +7,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QLabel, QLineEdit,
     QListView, QMainWindow, QMenuBar, QPushButton,
-    QScrollBar, QSizePolicy, QStatusBar, QWidget)
+    QScrollBar, QSizePolicy, QStatusBar, QWidget, QFileDialog)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -42,6 +32,7 @@ class Ui_MainWindow(object):
 
         self.pushButton_2 = QPushButton(self.centralwidget)
         self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.clicked.connect(self.btn_FileLoad)
 
         self.gridLayout_3.addWidget(self.pushButton_2, 0, 2, 1, 2)
 
@@ -57,6 +48,7 @@ class Ui_MainWindow(object):
 
         self.pushButton_3 = QPushButton(self.centralwidget)
         self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.clicked.connect(self.btn_FileLoad)
 
         self.gridLayout_3.addWidget(self.pushButton_3, 1, 2, 1, 2)
 
@@ -98,3 +90,13 @@ class Ui_MainWindow(object):
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\ud30c\uc77c \ucc3e\uae30", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\ubcd1\ud569\uc2dc\uc791", None))
     # retranslateUi
+
+    def btn_FileLoad(self):
+        fname = QFileDialog.getOpenFileName(self, "File Load", 'D:/ubuntu/disks/',
+                                            'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
+
+        if fname[0]:
+            print("파일 선택됨 파일 경로는 아래와 같음")
+            print(fname[0])
+        else:
+            print("파일 안 골랐음")
