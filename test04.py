@@ -111,10 +111,8 @@ class Ui_MainWindow(object):
                                             'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
         if fname[0]:
             self.lineEdit.setText(fname[0])
-            print("파일 경로")
-            print(fname[0])
         else:
-            print("파일 미선택")
+            pass
 
 
     def btn2_FileLoad(self):
@@ -122,8 +120,5 @@ class Ui_MainWindow(object):
                                             'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
         if fname[0]:
             self.lineEdit_2.setText(fname[0])
-            print("파일 경로")
-            print(fname[0])
         else:
-            print("파일 미선택")
-
+            pass
