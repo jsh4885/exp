@@ -57,14 +57,12 @@ class Ui_MainWindow(object):
         self.pushButton_2 = QPushButton(self.centralwidget)
         self.pushButton_2.setObjectName(u"pushButton_2")
         self.pushButton_2.clicked.connect(self.btn1_FileLoad)
-        self.pushButton_2.clicked.connect(self.file1_name)
         self.gridLayout_3.addWidget(self.pushButton_2, 0, 2, 1, 2)
 
 
         self.pushButton_3 = QPushButton(self.centralwidget)
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.clicked.connect(self.btn2_FileLoad)
-        self.pushButton_3.clicked.connect(self.file2_name)
         self.gridLayout_3.addWidget(self.pushButton_3, 1, 2, 1, 2)
 
 
@@ -112,6 +110,7 @@ class Ui_MainWindow(object):
         fname = QFileDialog.getOpenFileName(self, "File Load", 'D:/ubuntu/disks/',
                                             'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
         if fname[0]:
+            self.lineEdit.setText(fname[0])
             print("파일 경로")
             print(fname[0])
         else:
@@ -122,18 +121,9 @@ class Ui_MainWindow(object):
         fname = QFileDialog.getOpenFileName(self, "File Load", 'D:/ubuntu/disks/',
                                             'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
         if fname[0]:
+            self.lineEdit_2.setText(fname[0])
             print("파일 경로")
             print(fname[0])
         else:
             print("파일 미선택")
 
-
-    def file1_name(self):
-        text = "파일경로"
-        self.lineEdit.setText(text)
-
-
-    def file2_name(self):
-        text = "파일경로"
-        self.lineEdit_2.setText(text)
-    # function
