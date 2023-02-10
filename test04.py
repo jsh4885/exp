@@ -110,7 +110,9 @@ class Ui_MainWindow(object):
         fname = QFileDialog.getOpenFileName(self, "File Load", 'D:/ubuntu/disks/',
                                             'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
         if fname[0]:
-            self.lineEdit.setText(fname[0])
+            import os
+            file_path = os.path.basename(fname[0])
+            self.lineEdit.setText(file_path)
         else:
             pass
 
@@ -119,6 +121,8 @@ class Ui_MainWindow(object):
         fname = QFileDialog.getOpenFileName(self, "File Load", 'D:/ubuntu/disks/',
                                             'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
         if fname[0]:
-            self.lineEdit_2.setText(fname[0])
+            import os
+            file_path = os.path.basename(fname[0])
+            self.lineEdit_2.setText(file_path)
         else:
             pass
