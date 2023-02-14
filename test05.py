@@ -1,6 +1,6 @@
 # 상대경로가 파일 실행중 모호해지면서 파일을 찾지 못함
 # 실행파일과 모듈로 구분하여 문제를 해결할 예정
-
+# error:has no attribute 'CLSIDToClassMap' 발생시 appdata - local - temp 폴더에 있는 gen_py 폴더 삭제후 파이참 재시작
 
 import os
 import win32com.client as win32
