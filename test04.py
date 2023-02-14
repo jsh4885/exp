@@ -118,11 +118,25 @@ class Ui_MainWindow(object):
 
 
     def btn2_FileLoad(self):
-        fname = QFileDialog.getOpenFileName(self, "File Load", 'D:/ubuntu/disks/',
+        fname = QFileDialog.getOpenFileNames(self, "File Load", 'D:/ubuntu/disks/',
                                             'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
         if fname[0]:
             import os
-            file_path = os.path.basename(fname[0])
+            def convertString(arr, sep):
+
+                str_result = ""
+                for index, s in enumerate(arr):
+                    if index + 1 == len(arr):
+                        str_result += str(s)
+                    else:
+                        str_result += str(s) + sep
+
+                return str_result
+
+            path = convertString(fname[0], ", ")
+            file_path = os.path.basename(path)
             self.lineEdit_2.setText(file_path)
         else:
             pass
+
+        # function
