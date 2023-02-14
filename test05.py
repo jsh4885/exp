@@ -3,10 +3,10 @@ import win32com.client as win32
 hwp = win32.gencache.EnsureDispatch("HWPFrame.HwpObject")
 hwp.Run("FileNew")
 hwp.RegisterModule("FilePathCheckDLL", "SecurityModule")
-hwp.Open(r"C:\Users\JSH\Desktop\코딩\exp\상장샘플.hwp")
+hwp.Open(r"./상장샘플.hwp")
 
-BASE_DIR = r"C:\Users\JSH\Desktop\코딩\exp\첨부"
-첨부파일리스트 = os.listdir(r"C:\Users\JSH\Desktop\코딩\exp\첨부")
+BASE_DIR = r"./첨부"
+첨부파일리스트 = os.listdir(r"./첨부")
 
 def 첨부삽입(path):
     hwp.HAction.GetDefault("InsertFile", hwp.HParameterSet.HInsertFile.HSet)
