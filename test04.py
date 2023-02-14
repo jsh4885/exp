@@ -133,8 +133,8 @@ class Ui_MainWindow(object):
 
                 return str_result
 
-            path = convertString(fname[0], ", ")
-            file_path = os.path.basename(path)
+            file_path = convertString(fname[0], ", ")
+
             self.lineEdit_2.setText(file_path)
         else:
             pass
