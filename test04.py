@@ -123,13 +123,12 @@ class Ui_MainWindow(object):
         if fname[0]:
             import os
             def convertString(arr, sep):
-
                 str_result = ""
                 for index, s in enumerate(arr):
                     if index + 1 == len(arr):
-                        str_result += str(s)
+                        str_result += os.path.basename(str(s))
                     else:
-                        str_result += str(s) + sep
+                        str_result += os.path.basename(str(s) + sep)
 
                 return str_result
 
