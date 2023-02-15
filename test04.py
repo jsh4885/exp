@@ -71,6 +71,7 @@ class Ui_MainWindow(object):
 
         self.pushButton_5 = QPushButton(self.centralwidget)
         self.pushButton_5.setObjectName(u"pushButton_5")
+        self.pushButton_2.clicked.connect(self.btn_remove)
         self.pushButton_5.setGeometry(QRect(241, 265, 75, 24))
 
 
@@ -160,14 +161,18 @@ class Ui_MainWindow(object):
 
             file_pathB = convertStringB(fname[0], " ")
 
-            a= file_pathB.split(' ')
+            a= file_pathB.split()
             i = 0
             while i <= len(a):
-                self.listWidget.insertItem(i, a[i])
+                self.listWidget.addItem(a[i])
                 i += 1
 
         else:
             pass
 
+
+    def btn_remove(self):
+        rn = self.listWidget.currentRow()
+        self.listWidget.takeItem(rn)
 
         # function
