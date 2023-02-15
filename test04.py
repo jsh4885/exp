@@ -71,7 +71,7 @@ class Ui_MainWindow(object):
 
         self.pushButton_5 = QPushButton(self.centralwidget)
         self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_2.clicked.connect(self.btn_remove)
+        self.pushButton_5.clicked.connect(self.btn_remove)
         self.pushButton_5.setGeometry(QRect(241, 265, 75, 24))
 
 
