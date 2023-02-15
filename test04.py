@@ -84,6 +84,7 @@ class Ui_MainWindow(object):
         self.listWidget.setGeometry(QRect(19, 100, 211, 201))
 
 
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -132,7 +133,8 @@ class Ui_MainWindow(object):
                                             'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
         if fname[0]:
             import os
-            def convertString(arr, sep):
+
+            def convertStringA(arr, sep):
                 str_result = ""
                 for index, s in enumerate(arr):
                     if index + 1 == len(arr):
@@ -142,10 +144,30 @@ class Ui_MainWindow(object):
 
                 return str_result
 
-            file_path = convertString(fname[0], ", ")
+            file_pathA = convertStringA(fname[0], ", ")
 
-            self.lineEdit_2.setText(file_path)
+            self.lineEdit_2.setText(file_pathA)
+
+            def convertStringB(arr, sep):
+                str_result = ""
+                for index, s in enumerate(arr):
+                    if index + 1 == len(arr):
+                        str_result += os.path.basename(str(s))
+                    else:
+                        str_result += os.path.basename(str(s) + sep)
+
+                return str_result
+
+            file_pathB = convertStringB(fname[0], " ")
+
+            a= file_pathB.split(' ')
+            i = 0
+            while i <= len(a):
+                self.listWidget.insertItem(i, a[i])
+                i += 1
+
         else:
             pass
+
 
         # function
