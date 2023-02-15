@@ -9,78 +9,85 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 
 
-from PySide6.QtWidgets import (QApplication, QGridLayout, QLabel, QLineEdit,
-    QListView, QMainWindow, QMenuBar, QPushButton,
-    QScrollBar, QSizePolicy, QStatusBar, QWidget, QFileDialog)
+from PySide6.QtWidgets import (QApplication, QLabel, QLineEdit, QListWidget,
+    QListWidgetItem, QMainWindow, QMenuBar, QPushButton,
+    QSizePolicy, QStatusBar, QWidget, QFileDialog)
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(300, 380)
-        MainWindow.setMinimumSize(QSize(300, 380))
-        MainWindow.setMaximumSize(QSize(300, 380))
+        MainWindow.resize(334, 330)
+        MainWindow.setMinimumSize(QSize(334, 330))
+        MainWindow.setMaximumSize(QSize(334, 330))
 
 
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.gridLayout_3 = QGridLayout(self.centralwidget)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-
-
-        self.label = QLabel(self.centralwidget)
-        self.label.setObjectName(u"label")
-        self.gridLayout_3.addWidget(self.label, 0, 0, 1, 1)
-
-
-        self.label_2 = QLabel(self.centralwidget)
-        self.label_2.setObjectName(u"label_2")
-        self.gridLayout_3.addWidget(self.label_2, 1, 0, 1, 1)
 
 
         self.lineEdit = QLineEdit(self.centralwidget)
         self.lineEdit.setObjectName(u"lineEdit")
-        self.gridLayout_3.addWidget(self.lineEdit, 0, 1, 1, 1)
+        self.lineEdit.setGeometry(QRect(99, 23, 132, 21))
 
 
         self.lineEdit_2 = QLineEdit(self.centralwidget)
         self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.gridLayout_3.addWidget(self.lineEdit_2, 1, 1, 1, 1)
+        self.lineEdit_2.setGeometry(QRect(99, 53, 132, 21))
+
+
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(21, 22, 48, 16))
+
+
+        self.label_2 = QLabel(self.centralwidget)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(21, 52, 72, 16))
 
 
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.gridLayout_3.addWidget(self.pushButton, 3, 1, 1, 1)
+        self.pushButton.clicked.connect(self.btn1_FileLoad)
+        self.pushButton.setGeometry(QRect(240, 22, 75, 24))
 
 
         self.pushButton_2 = QPushButton(self.centralwidget)
         self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.clicked.connect(self.btn1_FileLoad)
-        self.gridLayout_3.addWidget(self.pushButton_2, 0, 2, 1, 2)
+        self.pushButton_2.clicked.connect(self.btn2_FileLoad)
+        self.pushButton_2.setGeometry(QRect(240, 52, 75, 24))
 
 
         self.pushButton_3 = QPushButton(self.centralwidget)
         self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.clicked.connect(self.btn2_FileLoad)
-        self.gridLayout_3.addWidget(self.pushButton_3, 1, 2, 1, 2)
+        self.pushButton_3.setGeometry(QRect(241, 163, 75, 24))
 
 
-        self.listView = QListView(self.centralwidget)
-        self.listView.setObjectName(u"listView")
-        self.gridLayout_3.addWidget(self.listView, 2, 0, 1, 3)
+        self.pushButton_4 = QPushButton(self.centralwidget)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setGeometry(QRect(241, 214, 75, 24))
 
 
-        self.verticalScrollBar = QScrollBar(self.centralwidget)
-        self.verticalScrollBar.setObjectName(u"verticalScrollBar")
-        self.verticalScrollBar.setOrientation(Qt.Vertical)
-        self.gridLayout_3.addWidget(self.verticalScrollBar, 2, 3, 1, 1)
+        self.pushButton_5 = QPushButton(self.centralwidget)
+        self.pushButton_5.setObjectName(u"pushButton_5")
+        self.pushButton_5.setGeometry(QRect(241, 265, 75, 24))
+
+
+        self.pushButton_6 = QPushButton(self.centralwidget)
+        self.pushButton_6.setObjectName(u"pushButton_6")
+        self.pushButton_6.setGeometry(QRect(241, 112, 75, 24))
+
+
+        self.listWidget = QListWidget(self.centralwidget)
+        self.listWidget.setObjectName(u"listWidget")
+        self.listWidget.setGeometry(QRect(19, 100, 211, 201))
 
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 300, 22))
+        self.menubar.setGeometry(QRect(0, 0, 334, 22))
 
 
         MainWindow.setMenuBar(self.menubar)
@@ -99,10 +106,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\uae30\uc900\ud30c\uc77c", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\ud30c\uc77c \ucc3e\uae30", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\ubcd1\ud569\ub300\uc0c1\ud30c\uc77c", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\ud30c\uc77c \ucc3e\uae30", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\ubcd1\ud569\uc2dc\uc791", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\ud30c\uc77c\ucc3e\uae30", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\ud30c\uc77c\ucc3e\uae30", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u25b3", None))
+        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"\uc0ad\uc81c", None))
+        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"\u25bd", None))
+        self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"\ubcd1\ud569\uc2dc\uc791", None))
     # retranslateUi
 
 
