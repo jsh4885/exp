@@ -164,8 +164,9 @@ class Ui_MainWindow(object):
 
             a= file_pathB.split()
             i = 0
-            while i <= len(a):
-                self.listWidget.addItem(a[i-1])
+            while i < len(a):
+                print(i)
+                self.listWidget.addItem(a[i])
                 i += 1
 
         else:
