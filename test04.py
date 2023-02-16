@@ -126,14 +126,18 @@ class Ui_MainWindow(object):
         if fname[0]:
             import os
             file_path = os.path.basename(fname[0])
+            global file_pathZ
+            file_pathZ = os.path.abspath(file_path)
             self.lineEdit.setText(file_path)
         else:
             pass
 
 
     def btn2_FileLoad(self):
+        global fname
         fname = QFileDialog.getOpenFileNames(self, "File Load", 'D:/ubuntu/disks/',
                                             'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
+
         if fname[0]:
             import os
 
@@ -166,7 +170,6 @@ class Ui_MainWindow(object):
             a= file_pathB.split()
             i = 0
             while i < len(a):
-                print(i)
                 self.listWidget.addItem(a[i])
                 i += 1
 
@@ -199,10 +202,13 @@ class Ui_MainWindow(object):
 
         hwp = win32.gencache.EnsureDispatch("HWPFrame.HwpObject")
         hwp.RegisterModule("FilePathCheckDLL", "SecurityModule")
-        hwp.Open(r"./상장샘플.hwp")
+        hwp.Open(file_pathZ)
 
-        BASE_DIR = r"./첨부"
-        첨부파일리스트 = os.listdir(r"./첨부")
+        import os
+
+        BASE_DIR = os.pardir(file_pathZ)
+        print(BASE_DIR)
+        첨부파일리스트 = fname
 
         def 첨부삽입(path):
             hwp.HAction.GetDefault("InsertFile", hwp.HParameterSet.HInsertFile.HSet)
@@ -221,5 +227,6 @@ class Ui_MainWindow(object):
             hwp.MovePos(3)
 
         hwp.Quit()
+
 
         # function
