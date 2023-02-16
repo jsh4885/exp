@@ -79,6 +79,7 @@ class Ui_MainWindow(object):
 
         self.pushButton_6 = QPushButton(self.centralwidget)
         self.pushButton_6.setObjectName(u"pushButton_6")
+        self.pushButton_6.clicked.connect(self.btn_merge)
         self.pushButton_6.setGeometry(QRect(241, 112, 75, 24))
 
 
@@ -191,5 +192,34 @@ class Ui_MainWindow(object):
         self.listWidget.insertItem(rowIndex + 1, currentItem)
         self.listWidget.setCurrentRow(rowIndex + 1)
 
+
+    def btn_merge(self):
+        import os
+        import win32com.client as win32
+
+        hwp = win32.gencache.EnsureDispatch("HWPFrame.HwpObject")
+        hwp.RegisterModule("FilePathCheckDLL", "SecurityModule")
+        hwp.Open(r"./상장샘플.hwp")
+
+        BASE_DIR = r"./첨부"
+        첨부파일리스트 = os.listdir(r"./첨부")
+
+        def 첨부삽입(path):
+            hwp.HAction.GetDefault("InsertFile", hwp.HParameterSet.HInsertFile.HSet)
+            hwp.HParameterSet.HInsertFile.filename = path
+            hwp.HParameterSet.HInsertFile.KeepSection = 1
+            hwp.HParameterSet.HInsertFile.KeepCharshape = 1
+            hwp.HParameterSet.HInsertFile.KeepParashape = 1
+            hwp.HParameterSet.HInsertFile.KeepStyle = 1
+            hwp.HAction.Execute("InsertFile", hwp.HParameterSet.HInsertFile.HSet)
+            return
+
+        hwp.MovePos(3)
+
+        for i in 첨부파일리스트:
+            첨부삽입(os.path.join(BASE_DIR, i))
+            hwp.MovePos(3)
+
+        hwp.Quit()
 
         # function
