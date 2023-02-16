@@ -173,6 +173,20 @@ class Ui_MainWindow(object):
                 self.listWidget.addItem(a[i])
                 i += 1
 
+            def convertStringX(arr, sep):
+                str_result = ""
+                for index, s in enumerate(arr):
+                    if index + 1 == len(arr):
+                        str_result += str(s)
+                    else:
+                        str_result += str(s) + sep
+
+                return str_result
+
+            file_path = convertStringX(fname[0], " ")
+            global file_pathX
+            file_pathX = file_path.split()
+
         else:
             pass
 
@@ -206,9 +220,10 @@ class Ui_MainWindow(object):
 
         import os
 
-        BASE_DIR = os.pardir(file_pathZ)
+        BASE_DIR = os.path.dirname(file_pathZ)
         print(BASE_DIR)
-        첨부파일리스트 = fname
+        첨부파일리스트 = file_pathX
+        print(첨부파일리스트)
 
         def 첨부삽입(path):
             hwp.HAction.GetDefault("InsertFile", hwp.HParameterSet.HInsertFile.HSet)
