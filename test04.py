@@ -61,11 +61,13 @@ class Ui_MainWindow(object):
 
         self.pushButton_3 = QPushButton(self.centralwidget)
         self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.clicked.connect(self.btn_moveup)
         self.pushButton_3.setGeometry(QRect(241, 163, 75, 24))
 
 
         self.pushButton_4 = QPushButton(self.centralwidget)
         self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.clicked.connect(self.btn_movedown)
         self.pushButton_4.setGeometry(QRect(241, 214, 75, 24))
 
 
@@ -83,7 +85,6 @@ class Ui_MainWindow(object):
         self.listWidget = QListWidget(self.centralwidget)
         self.listWidget.setObjectName(u"listWidget")
         self.listWidget.setGeometry(QRect(19, 100, 211, 201))
-
 
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -165,7 +166,6 @@ class Ui_MainWindow(object):
             i = 0
             while i <= len(a):
                 self.listWidget.addItem(a[i-1])
-                print(i)
                 i += 1
 
         else:
@@ -175,5 +175,20 @@ class Ui_MainWindow(object):
     def btn_remove(self):
         rn = self.listWidget.currentRow()
         self.listWidget.takeItem(rn)
+
+
+    def btn_moveup(self):
+        rowIndex = self.listWidget.currentRow()
+        currentItem = self.listWidget.takeItem(rowIndex)
+        self.listWidget.insertItem(rowIndex - 1, currentItem)
+        self.listWidget.setCurrentRow(rowIndex - 1)
+
+
+    def btn_movedown(self):
+        rowIndex = self.listWidget.currentRow()
+        currentItem = self.listWidget.takeItem(rowIndex)
+        self.listWidget.insertItem(rowIndex + 1, currentItem)
+        self.listWidget.setCurrentRow(rowIndex + 1)
+
 
         # function
