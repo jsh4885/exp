@@ -61,8 +61,8 @@ class Ui_MainWindow(object):
 
         self.pushButton_3 = QPushButton(self.centralwidget)
         self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.clicked.connect(self.btn_moveup)
         self.pushButton_3.setGeometry(QRect(241, 163, 75, 24))
+        self.pushButton_3.clicked.connect(self.btn_moveup)
 
 
         self.pushButton_4 = QPushButton(self.centralwidget)
@@ -197,18 +197,25 @@ class Ui_MainWindow(object):
 
 
     def btn_moveup(self):
-        rowIndex = self.listWidget.currentRow()
-        currentItem = self.listWidget.takeItem(rowIndex)
-        self.listWidget.insertItem(rowIndex - 1, currentItem)
-        self.listWidget.setCurrentRow(rowIndex - 1)
-        file_pathX[rowIndex -1], file_pathX[rowIndex] = file_pathX[rowIndex], file_pathX[rowIndex -1]
+        rowIndexA = self.listWidget.currentRow()
+        if 0 < rowIndexA:
+            currentItem = self.listWidget.takeItem(rowIndexA)
+            self.listWidget.insertItem(rowIndexA - 1, currentItem)
+            self.listWidget.setCurrentRow(rowIndexA - 1)
+            file_pathX[rowIndexA -1], file_pathX[rowIndexA] = file_pathX[rowIndexA], file_pathX[rowIndexA -1]
+        else :
+            pass
+
 
     def btn_movedown(self):
         rowIndex = self.listWidget.currentRow()
-        currentItem = self.listWidget.takeItem(rowIndex)
-        self.listWidget.insertItem(rowIndex + 1, currentItem)
-        self.listWidget.setCurrentRow(rowIndex + 1)
-        file_pathX[rowIndex], file_pathX[rowIndex +1] = file_pathX[rowIndex +1], file_pathX[rowIndex]
+        if rowIndex < len(file_pathX)-1 :
+            currentItem = self.listWidget.takeItem(rowIndex)
+            self.listWidget.insertItem(rowIndex + 1, currentItem)
+            self.listWidget.setCurrentRow(rowIndex + 1)
+            file_pathX[rowIndex], file_pathX[rowIndex +1] = file_pathX[rowIndex +1], file_pathX[rowIndex]
+        else :
+            pass
 
 
     def btn_merge(self):
@@ -218,8 +225,6 @@ class Ui_MainWindow(object):
         hwp = win32.gencache.EnsureDispatch("HWPFrame.HwpObject")
         hwp.RegisterModule("FilePathCheckDLL", "SecurityModule")
         hwp.Open(file_pathZ)
-
-        import os
 
         BASE_DIR = os.path.dirname(file_pathZ)
         print(BASE_DIR)
