@@ -183,9 +183,9 @@ class Ui_MainWindow(object):
 
                 return str_result
 
-            file_path = convertStringX(fname[0], " ")
+            file_path = convertStringX(fname[0], ",")
             global file_pathX
-            file_pathX = file_path.split()
+            file_pathX = file_path.split(',')
 
         else:
             pass
