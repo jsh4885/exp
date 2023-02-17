@@ -121,8 +121,8 @@ class Ui_MainWindow(object):
 
 
     def btn1_FileLoad(self):
-        fname = QFileDialog.getOpenFileName(self, "File Load", 'D:/ubuntu/disks/',
-                                            'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
+        fname = QFileDialog.getOpenFileName(self, "파일 목록", 'D:/ubuntu/disks/',
+                                            'Hwp File(*.hwp);; All File(*)')
         if fname[0]:
             import os
             file_path = os.path.basename(fname[0])
@@ -135,8 +135,8 @@ class Ui_MainWindow(object):
 
     def btn2_FileLoad(self):
         global fname
-        fname = QFileDialog.getOpenFileNames(self, "File Load", 'D:/ubuntu/disks/',
-                                            'All File(*);; Text File(*.txt);; PPtx file(*ppt *pptx)')
+        fname = QFileDialog.getOpenFileNames(self, "파일 목록", 'D:/ubuntu/disks/',
+                                            'Hwp File(*.hwp);; All File(*)')
 
         if fname[0]:
             import os
@@ -201,13 +201,14 @@ class Ui_MainWindow(object):
         currentItem = self.listWidget.takeItem(rowIndex)
         self.listWidget.insertItem(rowIndex - 1, currentItem)
         self.listWidget.setCurrentRow(rowIndex - 1)
-
+        file_pathX[rowIndex -1], file_pathX[rowIndex] = file_pathX[rowIndex], file_pathX[rowIndex -1]
 
     def btn_movedown(self):
         rowIndex = self.listWidget.currentRow()
         currentItem = self.listWidget.takeItem(rowIndex)
         self.listWidget.insertItem(rowIndex + 1, currentItem)
         self.listWidget.setCurrentRow(rowIndex + 1)
+        file_pathX[rowIndex], file_pathX[rowIndex +1] = file_pathX[rowIndex +1], file_pathX[rowIndex]
 
 
     def btn_merge(self):
