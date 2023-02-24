@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, WebDriverException
 import pandas as pd
-a
+
 # 스크랩 할 URL
 gm_url = 'http://corners.gmarket.co.kr/bestsellers'
 
