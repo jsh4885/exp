@@ -33,7 +33,7 @@ with webdriver.Chrome(options=options) as driver:
         print("Error occurred while getting elements:", e)
         driver.quit()
         # 프로그램을 종료하거나 오류 메시지를 반환합니다.
-
+1
     # 항목 이름과 가격을 저장할 빈 목록 만들기
     itemNames_list = []
     itemPrice_list = []
